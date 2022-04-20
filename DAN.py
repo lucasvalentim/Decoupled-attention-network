@@ -221,7 +221,7 @@ class DTD(nn.Module):
             out_res = torch.zeros(lenText, nB, self.nclass).type_as(feature.data)        
 
             hidden = torch.zeros(nB, self.nchannel).type_as(C.data)
-            prev_emb = self.char_embeddings.index_select(0, torch.zeros(nB).long().type_as(text.data))
+            prev_emb = self.char_embeddings.index_select(0, torch.zeros(nB).long().cuda())
             out_length = torch.zeros(nB)
             now_step = 0
             while 0 in out_length and now_step < nsteps:
