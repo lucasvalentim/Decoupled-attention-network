@@ -179,7 +179,7 @@ class DTD(nn.Module):
                         )
         self.char_embeddings = Parameter(torch.randn(nclass, nchannel))
 
-    def forward(self, feature, A, text, text_length, test = False):
+    def forward(self, feature, A, text=None, text_length=None, test=False):
         nB, nC, nH, nW = feature.size()
         nT = A.size()[1]
         # Normalize
